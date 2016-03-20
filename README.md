@@ -5,7 +5,7 @@ defines a docker container with emoncms installed
 
 1. [**Install docker**](https://docs.docker.com/installation/)
 1. **Download and start the emoncms instance**  
-`docker run --name emoncms -p 1803:1803 -d greyltc/emoncms`
+`docker run --name emoncms -p 80:80 -d greyltc/emoncms`
 1. **Test the emoncms server**  
 Point your browser to:  
 http://localhost/    
