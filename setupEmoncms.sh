@@ -14,5 +14,21 @@ sed -i 's,$password = "_DB_PASSWORD_";,$password = "";,g' /usr/share/webapps/emo
 
 mysql -e "CREATE DATABASE emoncms;"
 
+cd /root
+git clone https://github.com/emoncms/dashboard.git
+ln -s /root/dashboard/ /usr/share/webapps/emoncms/Modules/.
+git clone https://github.com/emoncms/graph.git
+ln -s /root/graph/ /usr/share/webapps/emoncms/Modules/.
+git clone https://github.com/emoncms/backup.git
+ln -s /root/backup/ /usr/share/webapps/emoncms/Modules/.
+
+mkdir /var/lib/phpfiwa
+mkdir /var/lib/phpfina
+mkdir /var/lib/phptimeseries
+
+chown http /var/lib/phpfiwa
+chown http /var/lib/phpfina
+chown http /var/lib/phptimeseries
+
 # reduce docker layer size
 cleanup-image
